@@ -82,6 +82,7 @@
             // 
             // buttonSuchen
             // 
+            this.buttonSuchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSuchen.Location = new System.Drawing.Point(462, 80);
             this.buttonSuchen.Name = "buttonSuchen";
             this.buttonSuchen.Size = new System.Drawing.Size(143, 23);
@@ -127,6 +128,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(505, 54);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);

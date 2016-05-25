@@ -25,7 +25,7 @@ namespace ÖVinder
             dateTime = dateTime.AddMonths(month-1);
             dateTime = dateTime.AddDays(day-1);
             dateTime = dateTime.AddHours(hours-1);
-            dateTime = dateTime.AddMinutes(minutes-);
+            dateTime = dateTime.AddMinutes(minutes);
             return dateTime;
         }
     }
