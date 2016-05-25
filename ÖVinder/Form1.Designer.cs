@@ -30,7 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageVerbindungen = new System.Windows.Forms.TabPage();
+            this.buttonSuchen = new System.Windows.Forms.Button();
             this.panelVerbindungen = new System.Windows.Forms.Panel();
+            this.tableLayoutPanelVerbindungen = new System.Windows.Forms.TableLayoutPanel();
             this.labelVerbindungen = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.labelZeit = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.labelNach = new System.Windows.Forms.Label();
             this.labelVon = new System.Windows.Forms.Label();
             this.tabPageAbfahrtsplan = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanelVerbindungen = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonSuchen = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageVerbindungen.SuspendLayout();
             this.panelVerbindungen.SuspendLayout();
@@ -80,6 +80,16 @@
             this.tabPageVerbindungen.Text = "Verbindungen";
             this.tabPageVerbindungen.UseVisualStyleBackColor = true;
             // 
+            // buttonSuchen
+            // 
+            this.buttonSuchen.Location = new System.Drawing.Point(462, 80);
+            this.buttonSuchen.Name = "buttonSuchen";
+            this.buttonSuchen.Size = new System.Drawing.Size(143, 23);
+            this.buttonSuchen.TabIndex = 10;
+            this.buttonSuchen.Text = "Verbindungen Suchen";
+            this.buttonSuchen.UseVisualStyleBackColor = true;
+            this.buttonSuchen.Click += new System.EventHandler(this.buttonSuchen_Click);
+            // 
             // panelVerbindungen
             // 
             this.panelVerbindungen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -89,6 +99,21 @@
             this.panelVerbindungen.Name = "panelVerbindungen";
             this.panelVerbindungen.Size = new System.Drawing.Size(607, 263);
             this.panelVerbindungen.TabIndex = 9;
+            // 
+            // tableLayoutPanelVerbindungen
+            // 
+            this.tableLayoutPanelVerbindungen.ColumnCount = 3;
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.74387F));
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.25613F));
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanelVerbindungen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelVerbindungen.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelVerbindungen.Name = "tableLayoutPanelVerbindungen";
+            this.tableLayoutPanelVerbindungen.RowCount = 2;
+            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelVerbindungen.Size = new System.Drawing.Size(607, 263);
+            this.tableLayoutPanelVerbindungen.TabIndex = 0;
             // 
             // labelVerbindungen
             // 
@@ -176,31 +201,6 @@
             this.tabPageAbfahrtsplan.TabIndex = 1;
             this.tabPageAbfahrtsplan.Text = "Abfahrtsplan";
             this.tabPageAbfahrtsplan.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanelVerbindungen
-            // 
-            this.tableLayoutPanelVerbindungen.ColumnCount = 3;
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.74387F));
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.25613F));
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
-            this.tableLayoutPanelVerbindungen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelVerbindungen.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelVerbindungen.Name = "tableLayoutPanelVerbindungen";
-            this.tableLayoutPanelVerbindungen.RowCount = 2;
-            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelVerbindungen.Size = new System.Drawing.Size(607, 263);
-            this.tableLayoutPanelVerbindungen.TabIndex = 0;
-            // 
-            // buttonSuchen
-            // 
-            this.buttonSuchen.Location = new System.Drawing.Point(462, 80);
-            this.buttonSuchen.Name = "buttonSuchen";
-            this.buttonSuchen.Size = new System.Drawing.Size(143, 23);
-            this.buttonSuchen.TabIndex = 10;
-            this.buttonSuchen.Text = "Verbindungen Suchen";
-            this.buttonSuchen.UseVisualStyleBackColor = true;
-            this.buttonSuchen.Click += new System.EventHandler(this.buttonSuchen_Click);
             // 
             // ouvinder
             // 
