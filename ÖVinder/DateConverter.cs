@@ -28,5 +28,13 @@ namespace ÖVinder
             dateTime = dateTime.AddMinutes(minutes);
             return dateTime;
         }
+
+        public String convertIntToTimeString(int time) {
+            String timeString = time.ToString();
+            if (time < 10) {
+                timeString = "0" + time;
+            }
+            return timeString;
+        }
     }
 }
