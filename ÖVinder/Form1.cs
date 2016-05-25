@@ -23,6 +23,8 @@ namespace ÖVinder {
             textBoxVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBoxNach.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBoxNach.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBoxAbfahrtsplan.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBoxAbfahrtsplan.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void printHeader() {
@@ -63,19 +65,22 @@ namespace ÖVinder {
         }
 
     private void searchConnections() {
+        //clear table and insert headers
         tableLayoutPanelVerbindungen.Controls.Clear();
         printHeader();
 
         Connections connection = transport.GetConnections(textBoxVon.Text, textBoxNach.Text);
 
+
+        //Fill list with connections
         int rowcount = 1;
-
-
         foreach (Connection targetConnection in connection.ConnectionList) {
 
+            //create datetime from string
             DateTime departure = Convert.ToDateTime(targetConnection.From.Departure.ToString());
             DateTime arrival = Convert.ToDateTime(targetConnection.To.Arrival.ToString());
 
+            //Convert strings to insert
             String departTime = dateConverter.convertIntToTimeString(departure.Hour) + ":" + dateConverter.convertIntToTimeString(departure.Minute);
             String arrivalTime = dateConverter.convertIntToTimeString(arrival.Hour) + ":" + dateConverter.convertIntToTimeString(arrival.Minute);
             String duration = targetConnection.Duration.ToString().Substring(targetConnection.Duration.ToString().Length - 7);
@@ -114,6 +119,7 @@ namespace ÖVinder {
         }
 
         private void textBoxVon_TextChanged(object sender, EventArgs e) {
+            StationBoardRoot sb = transport.GetStationBoard("Sursee");
             autoCompleteStations(textBoxVon);
         }
 
@@ -121,5 +127,8 @@ namespace ÖVinder {
             autoCompleteStations(textBoxNach);
         }
 
+        private void textBoxAbfahrtsplan_TextChanged(object sender, EventArgs e) {
+            autoCompleteStations(textBoxAbfahrtsplan);
+        }
     }
 }

@@ -40,7 +40,7 @@
             this.labelVon = new System.Windows.Forms.Label();
             this.tabPageAbfahrtsplan = new System.Windows.Forms.TabPage();
             this.labelStation = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxAbfahrtsplan = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanelAbfahrtsplan = new System.Windows.Forms.TableLayoutPanel();
             this.labelAbfahrtsplan = new System.Windows.Forms.Label();
@@ -130,9 +130,9 @@
             // 
             this.textBoxNach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNach.Location = new System.Drawing.Point(45, 54);
+            this.textBoxNach.Location = new System.Drawing.Point(55, 54);
             this.textBoxNach.Name = "textBoxNach";
-            this.textBoxNach.Size = new System.Drawing.Size(387, 20);
+            this.textBoxNach.Size = new System.Drawing.Size(377, 20);
             this.textBoxNach.TabIndex = 3;
             this.textBoxNach.TextChanged += new System.EventHandler(this.textBoxNach_TextChanged);
             this.textBoxNach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onEnterPress);
@@ -141,10 +141,9 @@
             // 
             this.textBoxVon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxVon.Location = new System.Drawing.Point(45, 25);
-            this.textBoxVon.MinimumSize = new System.Drawing.Size(387, 20);
+            this.textBoxVon.Location = new System.Drawing.Point(55, 25);
             this.textBoxVon.Name = "textBoxVon";
-            this.textBoxVon.Size = new System.Drawing.Size(387, 20);
+            this.textBoxVon.Size = new System.Drawing.Size(377, 20);
             this.textBoxVon.TabIndex = 2;
             this.textBoxVon.TextChanged += new System.EventHandler(this.textBoxVon_TextChanged);
             this.textBoxVon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onEnterPress);
@@ -172,7 +171,7 @@
             this.tabPageAbfahrtsplan.Controls.Add(this.labelAbfahrtsplan);
             this.tabPageAbfahrtsplan.Controls.Add(this.tableLayoutPanelAbfahrtsplan);
             this.tabPageAbfahrtsplan.Controls.Add(this.button1);
-            this.tabPageAbfahrtsplan.Controls.Add(this.textBox1);
+            this.tabPageAbfahrtsplan.Controls.Add(this.textBoxAbfahrtsplan);
             this.tabPageAbfahrtsplan.Controls.Add(this.labelStation);
             this.tabPageAbfahrtsplan.Location = new System.Drawing.Point(4, 22);
             this.tabPageAbfahrtsplan.Name = "tabPageAbfahrtsplan";
@@ -191,14 +190,15 @@
             this.labelStation.TabIndex = 0;
             this.labelStation.Text = "Station:";
             // 
-            // textBox1
+            // textBoxAbfahrtsplan
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxAbfahrtsplan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(55, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(377, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxAbfahrtsplan.Location = new System.Drawing.Point(55, 25);
+            this.textBoxAbfahrtsplan.Name = "textBoxAbfahrtsplan";
+            this.textBoxAbfahrtsplan.Size = new System.Drawing.Size(377, 20);
+            this.textBoxAbfahrtsplan.TabIndex = 1;
+            this.textBoxAbfahrtsplan.TextChanged += new System.EventHandler(this.textBoxAbfahrtsplan_TextChanged);
             // 
             // button1
             // 
@@ -218,12 +218,12 @@
             this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelAbfahrtsplan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanelAbfahrtsplan.Location = new System.Drawing.Point(3, 124);
+            this.tableLayoutPanelAbfahrtsplan.Location = new System.Drawing.Point(3, 127);
             this.tableLayoutPanelAbfahrtsplan.Name = "tableLayoutPanelAbfahrtsplan";
             this.tableLayoutPanelAbfahrtsplan.RowCount = 2;
             this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 263);
+            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 260);
             this.tableLayoutPanelAbfahrtsplan.TabIndex = 3;
             // 
             // labelAbfahrtsplan
@@ -269,7 +269,7 @@
         private System.Windows.Forms.Label labelVerbindungen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelVerbindungen;
         private System.Windows.Forms.Button buttonSuchen;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxAbfahrtsplan;
         private System.Windows.Forms.Label labelStation;
         private System.Windows.Forms.Label labelAbfahrtsplan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAbfahrtsplan;
