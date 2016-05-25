@@ -120,6 +120,9 @@ namespace ÖVinder {
 
         private void textBoxVon_TextChanged(object sender, EventArgs e) {
             StationBoardRoot sb = transport.GetStationBoard("Sursee");
+            foreach(StationBoard board in sb.Entries) {
+                board.Name;
+            }
             autoCompleteStations(textBoxVon);
         }
 
