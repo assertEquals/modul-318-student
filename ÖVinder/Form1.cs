@@ -13,6 +13,7 @@ namespace ÖVinder {
     public partial class ouvinder : Form {
         private ITransport transport = new Transport();
         private DateConverter dateConverter = new DateConverter();
+
         public ouvinder() {
             InitializeComponent();
             printHeader();
@@ -33,6 +34,8 @@ namespace ÖVinder {
             tableLayoutPanelVerbindungen.Controls.Clear();
             tableLayoutPanelAbfahrtsplan.Controls.Clear();
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
+            Control c = tableLayoutPanelVerbindungen.GetControlFromPosition(0, 0);
+            
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Ankunft", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Fahrtdauer", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Gleis", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
@@ -71,7 +74,13 @@ namespace ÖVinder {
             //clear table and insert headers
             printHeader();
 
-            Connections connection = transport.GetConnections(textBoxVon.Text, textBoxNach.Text);
+            //get Datetimes from datetimepicker
+            DateTime datePicker = dateTimePickerDate.Value;
+            DateTime timePicker = dateTimePickerTime.Value;
+
+            DateTime selectedDepart = new DateTime(datePicker.Year, datePicker.Month, datePicker.Day, timePicker.Hour, timePicker.Minute, 0);
+
+            Connections connection = transport.GetConnections(textBoxVon.Text, textBoxNach.Text, selectedDepart);
 
 
             //Fill list with connections
@@ -145,15 +154,15 @@ namespace ÖVinder {
 
             //fill Abfahrstable
             foreach (StationBoard stationboardloop in stationboard.Entries) {
-                MessageBox.Show(stationboardloop.Category);
                 int colcount = 0;
 
                 tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = dateConverter.getTimeFromDateTime(stationboardloop.Stop.Departure), AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
                 tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.To, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
+                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Category, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 rowcount++;
             }
         }
     }
-}
+  }

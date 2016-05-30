@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ouvinder));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageVerbindungen = new System.Windows.Forms.TabPage();
             this.buttonSuchen = new System.Windows.Forms.Button();
@@ -40,10 +41,14 @@
             this.labelVon = new System.Windows.Forms.Label();
             this.tabPageAbfahrtsplan = new System.Windows.Forms.TabPage();
             this.labelAbfahrtsplan = new System.Windows.Forms.Label();
+            this.tableLayoutPanelAbfahrtsplan = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAbfahrtsplanSuchen = new System.Windows.Forms.Button();
             this.textBoxAbfahrtsplan = new System.Windows.Forms.TextBox();
             this.labelStation = new System.Windows.Forms.Label();
-            this.tableLayoutPanelAbfahrtsplan = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
+            this.labelDatum = new System.Windows.Forms.Label();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPageVerbindungen.SuspendLayout();
             this.panelVerbindungen.SuspendLayout();
@@ -58,11 +63,15 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(448, 416);
+            this.tabControl1.Size = new System.Drawing.Size(448, 447);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageVerbindungen
             // 
+            this.tabPageVerbindungen.Controls.Add(this.dateTimePickerTime);
+            this.tabPageVerbindungen.Controls.Add(this.labelTime);
+            this.tabPageVerbindungen.Controls.Add(this.labelDatum);
+            this.tabPageVerbindungen.Controls.Add(this.dateTimePickerDate);
             this.tabPageVerbindungen.Controls.Add(this.buttonSuchen);
             this.tabPageVerbindungen.Controls.Add(this.panelVerbindungen);
             this.tabPageVerbindungen.Controls.Add(this.labelVerbindungen);
@@ -73,7 +82,7 @@
             this.tabPageVerbindungen.Location = new System.Drawing.Point(4, 22);
             this.tabPageVerbindungen.Name = "tabPageVerbindungen";
             this.tabPageVerbindungen.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVerbindungen.Size = new System.Drawing.Size(440, 390);
+            this.tabPageVerbindungen.Size = new System.Drawing.Size(440, 421);
             this.tabPageVerbindungen.TabIndex = 0;
             this.tabPageVerbindungen.Text = "Verbindungen";
             this.tabPageVerbindungen.UseVisualStyleBackColor = true;
@@ -81,7 +90,7 @@
             // buttonSuchen
             // 
             this.buttonSuchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSuchen.Location = new System.Drawing.Point(289, 80);
+            this.buttonSuchen.Location = new System.Drawing.Point(289, 109);
             this.buttonSuchen.Name = "buttonSuchen";
             this.buttonSuchen.Size = new System.Drawing.Size(143, 23);
             this.buttonSuchen.TabIndex = 10;
@@ -94,7 +103,7 @@
             this.panelVerbindungen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelVerbindungen.Controls.Add(this.tableLayoutPanelVerbindungen);
-            this.panelVerbindungen.Location = new System.Drawing.Point(3, 127);
+            this.panelVerbindungen.Location = new System.Drawing.Point(3, 158);
             this.panelVerbindungen.Name = "panelVerbindungen";
             this.panelVerbindungen.Size = new System.Drawing.Size(434, 263);
             this.panelVerbindungen.TabIndex = 9;
@@ -109,6 +118,7 @@
             this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelVerbindungen.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanelVerbindungen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tableLayoutPanelVerbindungen.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelVerbindungen.Name = "tableLayoutPanelVerbindungen";
             this.tableLayoutPanelVerbindungen.RowCount = 2;
@@ -120,7 +130,7 @@
             // labelVerbindungen
             // 
             this.labelVerbindungen.AutoSize = true;
-            this.labelVerbindungen.Location = new System.Drawing.Point(8, 111);
+            this.labelVerbindungen.Location = new System.Drawing.Point(3, 142);
             this.labelVerbindungen.Name = "labelVerbindungen";
             this.labelVerbindungen.Size = new System.Drawing.Size(82, 13);
             this.labelVerbindungen.TabIndex = 8;
@@ -177,7 +187,7 @@
             this.tabPageAbfahrtsplan.Location = new System.Drawing.Point(4, 22);
             this.tabPageAbfahrtsplan.Name = "tabPageAbfahrtsplan";
             this.tabPageAbfahrtsplan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAbfahrtsplan.Size = new System.Drawing.Size(440, 390);
+            this.tabPageAbfahrtsplan.Size = new System.Drawing.Size(440, 421);
             this.tabPageAbfahrtsplan.TabIndex = 1;
             this.tabPageAbfahrtsplan.Text = "Abfahrtsplan";
             this.tabPageAbfahrtsplan.UseVisualStyleBackColor = true;
@@ -185,17 +195,34 @@
             // labelAbfahrtsplan
             // 
             this.labelAbfahrtsplan.AutoSize = true;
-            this.labelAbfahrtsplan.Location = new System.Drawing.Point(8, 111);
+            this.labelAbfahrtsplan.Location = new System.Drawing.Point(3, 142);
             this.labelAbfahrtsplan.Name = "labelAbfahrtsplan";
             this.labelAbfahrtsplan.Size = new System.Drawing.Size(82, 13);
             this.labelAbfahrtsplan.TabIndex = 9;
             this.labelAbfahrtsplan.Text = "Verbindungen v";
             this.labelAbfahrtsplan.Click += new System.EventHandler(this.labelAbfahrtsplan_Click);
             // 
+            // tableLayoutPanelAbfahrtsplan
+            // 
+            this.tableLayoutPanelAbfahrtsplan.AutoScroll = true;
+            this.tableLayoutPanelAbfahrtsplan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanelAbfahrtsplan.ColumnCount = 3;
+            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelAbfahrtsplan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanelAbfahrtsplan.Location = new System.Drawing.Point(3, 158);
+            this.tableLayoutPanelAbfahrtsplan.Name = "tableLayoutPanelAbfahrtsplan";
+            this.tableLayoutPanelAbfahrtsplan.RowCount = 2;
+            this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 260);
+            this.tableLayoutPanelAbfahrtsplan.TabIndex = 3;
+            // 
             // buttonAbfahrtsplanSuchen
             // 
             this.buttonAbfahrtsplanSuchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAbfahrtsplanSuchen.Location = new System.Drawing.Point(289, 80);
+            this.buttonAbfahrtsplanSuchen.Location = new System.Drawing.Point(289, 109);
             this.buttonAbfahrtsplanSuchen.Name = "buttonAbfahrtsplanSuchen";
             this.buttonAbfahrtsplanSuchen.Size = new System.Drawing.Size(143, 23);
             this.buttonAbfahrtsplanSuchen.TabIndex = 2;
@@ -222,29 +249,47 @@
             this.labelStation.TabIndex = 0;
             this.labelStation.Text = "Station:";
             // 
-            // tableLayoutPanelAbfahrtsplan
+            // dateTimePickerDate
             // 
-            this.tableLayoutPanelAbfahrtsplan.AutoScroll = true;
-            this.tableLayoutPanelAbfahrtsplan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanelAbfahrtsplan.ColumnCount = 3;
-            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelAbfahrtsplan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelAbfahrtsplan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanelAbfahrtsplan.Location = new System.Drawing.Point(3, 127);
-            this.tableLayoutPanelAbfahrtsplan.Name = "tableLayoutPanelAbfahrtsplan";
-            this.tableLayoutPanelAbfahrtsplan.RowCount = 2;
-            this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 260);
-            this.tableLayoutPanelAbfahrtsplan.TabIndex = 3;
+            this.dateTimePickerDate.Location = new System.Drawing.Point(55, 83);
+            this.dateTimePickerDate.Name = "dateTimePickerDate";
+            this.dateTimePickerDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDate.TabIndex = 11;
+            // 
+            // labelDatum
+            // 
+            this.labelDatum.AutoSize = true;
+            this.labelDatum.Location = new System.Drawing.Point(3, 86);
+            this.labelDatum.Name = "labelDatum";
+            this.labelDatum.Size = new System.Drawing.Size(41, 13);
+            this.labelDatum.TabIndex = 13;
+            this.labelDatum.Text = "Datum:";
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(261, 86);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(33, 13);
+            this.labelTime.TabIndex = 14;
+            this.labelTime.Text = "Time:";
+            // 
+            // dateTimePickerTime
+            // 
+            this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerTime.Location = new System.Drawing.Point(300, 83);
+            this.dateTimePickerTime.Name = "dateTimePickerTime";
+            this.dateTimePickerTime.ShowUpDown = true;
+            this.dateTimePickerTime.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerTime.TabIndex = 15;
             // 
             // ouvinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 416);
+            this.ClientSize = new System.Drawing.Size(448, 447);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(456, 443);
             this.Name = "ouvinder";
             this.Text = "ÖVinder";
@@ -277,6 +322,10 @@
         private System.Windows.Forms.Label labelAbfahrtsplan;
         private System.Windows.Forms.Button buttonAbfahrtsplanSuchen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAbfahrtsplan;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDate;
+        private System.Windows.Forms.Label labelDatum;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTime;
     }
 }
 

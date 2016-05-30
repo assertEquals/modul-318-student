@@ -4,9 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ÖVinder
+namespace SwissTransport
 {
-    class DateConverter {
+    public class DateConverter {
+
+        public DateConverter() {
+
+        }
+
+        public String getDateFromDateTime(DateTime dateTime) {
+            String date = "";
+            date = dateTime.Year.ToString();
+            date = date + "-" + dateTime.Month.ToString();
+            date = date + "-" + dateTime.Day.ToString();
+            return date;
+        }
+
         public DateTime getDurationFromDurationString(String dateTimeString) {
             String yearString = dateTimeString.Substring(0, 4);
             String monthString = dateTimeString.Substring(5, 2);
