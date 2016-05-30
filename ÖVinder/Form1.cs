@@ -18,15 +18,16 @@ namespace ÖVinder {
     public partial class ouvinder : Form {
         private ITransport transport = new Transport();
         private DateConverter dateConverter = new DateConverter();
-        private GMapOverlay currentMarker = new GMapOverlay("markers");
+        private GMapOverlay markersOverlay = new GMapOverlay("markers");
+        private GMapMarker currentMarker;
 
         public ouvinder() {
             InitializeComponent();
             printHeader();
         }
 
-        //Set autocompletedropdown to textboxes
         private void ouvinder_Load(object sender, EventArgs e) {
+            //Set autocompletedropdown to textboxes
             textBoxVon.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBoxVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBoxNach.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -35,9 +36,12 @@ namespace ÖVinder {
             textBoxAbfahrtsplan.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBoxStationForMap.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBoxStationForMap.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //set provider for map
-            gMapControlMap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+
+            //configure map
+            gMapControlMap.MapProvider = GMap.NET.MapProviders.GoogleHybridMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gMapControlMap.Position = new PointLatLng(46.7976544,8.2275602);
+            gMapControlMap.ShowCenter = false;
         }
 
         //print header of table
@@ -193,11 +197,18 @@ namespace ÖVinder {
             Station station = transport.GetStations(textBoxStationForMap.Text).StationList[0];
             gMapControlMap.Position = new PointLatLng(station.Coordinate.XCoordinate, station.Coordinate.YCoordinate);
 
-            currentMarker.Markers.Remove();
+            //remove marker
+            markersOverlay.Markers.Remove(currentMarker);
+
+            //zoom into station
+            gMapControlMap.Zoom = 15;
+
+            //set marker
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(station.Coordinate.XCoordinate, station.Coordinate.YCoordinate),
-            GMarkerGoogleType.orange);
-            currentMarker.Markers.Add(marker);
-            gMapControlMap.Overlays.Add(currentMarker);
+            GMarkerGoogleType.red_dot);
+            markersOverlay.Markers.Add(marker);
+            gMapControlMap.Overlays.Add(markersOverlay);
+            currentMarker = marker;
         }
     }
   }

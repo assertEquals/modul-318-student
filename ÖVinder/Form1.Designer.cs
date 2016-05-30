@@ -356,8 +356,8 @@
             this.gMapControlMap.LevelsKeepInMemmory = 5;
             this.gMapControlMap.Location = new System.Drawing.Point(3, 158);
             this.gMapControlMap.MarkersEnabled = true;
-            this.gMapControlMap.MaxZoom = 1000;
-            this.gMapControlMap.MinZoom = 0;
+            this.gMapControlMap.MaxZoom = 20;
+            this.gMapControlMap.MinZoom = 7;
             this.gMapControlMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gMapControlMap.Name = "gMapControlMap";
             this.gMapControlMap.NegativeMode = false;
@@ -369,7 +369,7 @@
             this.gMapControlMap.ShowTileGridLines = false;
             this.gMapControlMap.Size = new System.Drawing.Size(434, 260);
             this.gMapControlMap.TabIndex = 5;
-            this.gMapControlMap.Zoom = 16D;
+            this.gMapControlMap.Zoom = 7D;
             // 
             // ouvinder
             // 
