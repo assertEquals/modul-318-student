@@ -6,6 +6,9 @@ namespace SwissTransport
 {
     public class StationBoardRoot
     {
+        [JsonProperty("Station")]
+        public Station Station { get; set; }
+
         [JsonProperty("stationboard")]
         public List<StationBoard> Entries { get; set; }
     }

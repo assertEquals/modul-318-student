@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ÖVinder
 {
-    class DateConverter
-    {
-        public DateTime getDurationFromDurationString(String dateTimeString)
-        {
+    class DateConverter {
+        public DateTime getDurationFromDurationString(String dateTimeString) {
             String yearString = dateTimeString.Substring(0, 4);
             String monthString = dateTimeString.Substring(5, 2);
             String dayString = dateTimeString.Substring(8, 2);
@@ -21,10 +19,10 @@ namespace ÖVinder
             int hours = Convert.ToInt32(hoursString);
             int minutes = Convert.ToInt32(minutesString);
             DateTime dateTime = new DateTime();
-            dateTime = dateTime.AddYears(year-1);
-            dateTime = dateTime.AddMonths(month-1);
-            dateTime = dateTime.AddDays(day-1);
-            dateTime = dateTime.AddHours(hours-1);
+            dateTime = dateTime.AddYears(year - 1);
+            dateTime = dateTime.AddMonths(month - 1);
+            dateTime = dateTime.AddDays(day - 1);
+            dateTime = dateTime.AddHours(hours - 1);
             dateTime = dateTime.AddMinutes(minutes);
             return dateTime;
         }
@@ -36,5 +34,23 @@ namespace ÖVinder
             }
             return timeString;
         }
-    }
-}
+
+        public String getTimeFromDateTime(DateTime dt) {
+            String time;
+            if (dt.Hour < 10 && dt.Minute < 10) {
+                time = "0" + dt.Hour.ToString() + ":0" + dt.Minute.ToString();
+                return time;
+            }
+            if (dt.Hour < 10 && dt.Minute > 10) {
+                time = "0" + dt.Hour.ToString() + ":" + dt.Minute.ToString();
+                return time;
+            }
+            if (dt.Hour > 10 && dt.Minute < 10) {
+                time = dt.Hour.ToString() + ":0" + dt.Minute.ToString();
+                return time;
+            }
+            time = dt.Hour.ToString() + ":" + dt.Minute.ToString();
+            return time;
+            }
+       }
+ }
