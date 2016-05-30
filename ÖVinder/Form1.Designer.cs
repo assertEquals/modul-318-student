@@ -49,16 +49,24 @@
             this.labelDatum = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
+            this.tabPageMap = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxStationForMap = new System.Windows.Forms.TextBox();
+            this.buttonsearchStationOnMap = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gMapControlMap = new GMap.NET.WindowsForms.GMapControl();
             this.tabControl1.SuspendLayout();
             this.tabPageVerbindungen.SuspendLayout();
             this.panelVerbindungen.SuspendLayout();
             this.tabPageAbfahrtsplan.SuspendLayout();
+            this.tabPageMap.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageVerbindungen);
             this.tabControl1.Controls.Add(this.tabPageAbfahrtsplan);
+            this.tabControl1.Controls.Add(this.tabPageMap);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -283,6 +291,86 @@
             this.dateTimePickerTime.Size = new System.Drawing.Size(132, 20);
             this.dateTimePickerTime.TabIndex = 15;
             // 
+            // tabPageMap
+            // 
+            this.tabPageMap.Controls.Add(this.gMapControlMap);
+            this.tabPageMap.Controls.Add(this.label2);
+            this.tabPageMap.Controls.Add(this.buttonsearchStationOnMap);
+            this.tabPageMap.Controls.Add(this.textBoxStationForMap);
+            this.tabPageMap.Controls.Add(this.label1);
+            this.tabPageMap.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMap.Name = "tabPageMap";
+            this.tabPageMap.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMap.Size = new System.Drawing.Size(440, 421);
+            this.tabPageMap.TabIndex = 2;
+            this.tabPageMap.Text = "Karte";
+            this.tabPageMap.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Station:";
+            // 
+            // textBoxStationForMap
+            // 
+            this.textBoxStationForMap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxStationForMap.Location = new System.Drawing.Point(55, 25);
+            this.textBoxStationForMap.Name = "textBoxStationForMap";
+            this.textBoxStationForMap.Size = new System.Drawing.Size(377, 20);
+            this.textBoxStationForMap.TabIndex = 1;
+            this.textBoxStationForMap.TextChanged += new System.EventHandler(this.textBoxStationForMap_TextChanged);
+            // 
+            // buttonsearchStationOnMap
+            // 
+            this.buttonsearchStationOnMap.Location = new System.Drawing.Point(289, 109);
+            this.buttonsearchStationOnMap.Name = "buttonsearchStationOnMap";
+            this.buttonsearchStationOnMap.Size = new System.Drawing.Size(143, 23);
+            this.buttonsearchStationOnMap.TabIndex = 2;
+            this.buttonsearchStationOnMap.Text = "Station suchen";
+            this.buttonsearchStationOnMap.UseVisualStyleBackColor = true;
+            this.buttonsearchStationOnMap.Click += new System.EventHandler(this.buttonsearchStationOnMap_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Karte v";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // gMapControlMap
+            // 
+            this.gMapControlMap.Bearing = 0F;
+            this.gMapControlMap.CanDragMap = true;
+            this.gMapControlMap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gMapControlMap.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControlMap.GrayScaleMode = false;
+            this.gMapControlMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControlMap.LevelsKeepInMemmory = 5;
+            this.gMapControlMap.Location = new System.Drawing.Point(3, 158);
+            this.gMapControlMap.MarkersEnabled = true;
+            this.gMapControlMap.MaxZoom = 1000;
+            this.gMapControlMap.MinZoom = 0;
+            this.gMapControlMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControlMap.Name = "gMapControlMap";
+            this.gMapControlMap.NegativeMode = false;
+            this.gMapControlMap.PolygonsEnabled = true;
+            this.gMapControlMap.RetryLoadTile = 0;
+            this.gMapControlMap.RoutesEnabled = true;
+            this.gMapControlMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControlMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControlMap.ShowTileGridLines = false;
+            this.gMapControlMap.Size = new System.Drawing.Size(434, 260);
+            this.gMapControlMap.TabIndex = 5;
+            this.gMapControlMap.Zoom = 16D;
+            // 
             // ouvinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +388,8 @@
             this.panelVerbindungen.ResumeLayout(false);
             this.tabPageAbfahrtsplan.ResumeLayout(false);
             this.tabPageAbfahrtsplan.PerformLayout();
+            this.tabPageMap.ResumeLayout(false);
+            this.tabPageMap.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -326,6 +416,12 @@
         private System.Windows.Forms.Label labelDatum;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
+        private System.Windows.Forms.TabPage tabPageMap;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonsearchStationOnMap;
+        private System.Windows.Forms.TextBox textBoxStationForMap;
+        private System.Windows.Forms.Label label1;
+        private GMap.NET.WindowsForms.GMapControl gMapControlMap;
     }
 }
 

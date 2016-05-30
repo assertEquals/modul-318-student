@@ -1,8 +1,13 @@
-﻿using SwissTransport;
+﻿using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using Microsoft.Win32;
+using SwissTransport;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +18,7 @@ namespace ÖVinder {
     public partial class ouvinder : Form {
         private ITransport transport = new Transport();
         private DateConverter dateConverter = new DateConverter();
+        private GMapOverlay currentMarker = new GMapOverlay("markers");
 
         public ouvinder() {
             InitializeComponent();
@@ -27,15 +33,18 @@ namespace ÖVinder {
             textBoxNach.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBoxAbfahrtsplan.AutoCompleteMode = AutoCompleteMode.Suggest;
             textBoxAbfahrtsplan.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBoxStationForMap.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBoxStationForMap.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //set provider for map
+            gMapControlMap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
         }
 
         //print header of table
         private void printHeader() {
             tableLayoutPanelVerbindungen.Controls.Clear();
             tableLayoutPanelAbfahrtsplan.Controls.Clear();
-            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            Control c = tableLayoutPanelVerbindungen.GetControlFromPosition(0, 0);
-            
+            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }); 
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Ankunft", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Fahrtdauer", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
             tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Gleis", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
@@ -163,6 +172,32 @@ namespace ÖVinder {
                 tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Category, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 rowcount++;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+            if (tableLayoutPanelAbfahrtsplan.Visible) {
+                labelAbfahrtsplan.Text = "Karte <";
+                tableLayoutPanelAbfahrtsplan.Visible = false;
+            }
+            else {
+                labelAbfahrtsplan.Text = "Karte v";
+                tableLayoutPanelAbfahrtsplan.Visible = true;
+            }
+        }
+
+        private void textBoxStationForMap_TextChanged(object sender, EventArgs e) {
+            autoCompleteStations(textBoxStationForMap);
+        }
+
+        private void buttonsearchStationOnMap_Click(object sender, EventArgs e) {
+            Station station = transport.GetStations(textBoxStationForMap.Text).StationList[0];
+            gMapControlMap.Position = new PointLatLng(station.Coordinate.XCoordinate, station.Coordinate.YCoordinate);
+
+            currentMarker.Markers.Remove();
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(station.Coordinate.XCoordinate, station.Coordinate.YCoordinate),
+            GMarkerGoogleType.orange);
+            currentMarker.Markers.Add(marker);
+            gMapControlMap.Overlays.Add(currentMarker);
         }
     }
   }
