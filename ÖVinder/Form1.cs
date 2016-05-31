@@ -17,7 +17,6 @@ using System.Windows.Forms;
 namespace ÖVinder {
     public partial class ouvinder : Form {
         private ITransport transport = new Transport();
-        private DateConverter dateConverter = new DateConverter();
         private GMapOverlay markersOverlay = new GMapOverlay("markers");
         private GMapMarker currentMarker;
 
@@ -105,8 +104,8 @@ namespace ÖVinder {
                 DateTime arrival = Convert.ToDateTime(targetConnection.To.Arrival.ToString());
 
                 //Convert strings to insert
-                String departTime = dateConverter.convertIntToTimeString(departure.Hour) + ":" + dateConverter.convertIntToTimeString(departure.Minute);
-                String arrivalTime = dateConverter.convertIntToTimeString(arrival.Hour) + ":" + dateConverter.convertIntToTimeString(arrival.Minute);
+                String departTime = departure.ToString("HH:mm");
+                String arrivalTime = departure.ToString("HH:mm");
                 String duration = targetConnection.Duration.ToString().Substring(targetConnection.Duration.ToString().Length - 7);
                 String platform = targetConnection.From.Platform.ToString();
 
@@ -169,7 +168,7 @@ namespace ÖVinder {
             foreach (StationBoard stationboardloop in stationboard.Entries) {
                 int colcount = 0;
 
-                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = dateConverter.getTimeFromDateTime(stationboardloop.Stop.Departure), AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Stop.Departure.ToString("HH:mm"), AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
                 tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.To, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
