@@ -208,7 +208,7 @@
             this.tableLayoutPanelAbfahrtsplan.RowCount = 2;
             this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelAbfahrtsplan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 280);
+            this.tableLayoutPanelAbfahrtsplan.Size = new System.Drawing.Size(434, 263);
             this.tableLayoutPanelAbfahrtsplan.TabIndex = 3;
             // 
             // buttonAbfahrtsplanSuchen

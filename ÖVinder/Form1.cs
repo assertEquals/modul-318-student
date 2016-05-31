@@ -47,22 +47,28 @@ namespace ÖVinder {
         private void printHeader() {
             tableLayoutPanelVerbindungen.Controls.Clear();
             tableLayoutPanelAbfahrtsplan.Controls.Clear();
-            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }); 
-            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Ankunft", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Fahrtdauer", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Gleis", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Nach", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
-            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Fahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
+            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom}); 
+            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Ankunft", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
+            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Fahrtdauer", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
+            tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = "Gleis", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
+            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Abfahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
+            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Nach", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
+            tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Fahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None, Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom });
         }
+
+        //
+        //
+        //
+        //Verbindungen
+        //
+        //
+        //
 
         private void buttonSuchen_Click(object sender, EventArgs e) {
             searchConnections();
         }
 
         private void searchConnections() {
-            //clear table and insert headers
-            printHeader();
 
             //get Datetimes from datetimepicker
             DateTime datePicker = dateTimePickerDate.Value;
@@ -72,6 +78,8 @@ namespace ÖVinder {
 
             Connections connection = transport.GetConnections(textBoxVon.Text, textBoxNach.Text, selectedDepart);
 
+            //clear table and insert headers
+            printHeader();
 
             //Fill list with connections
             int rowcount = 1;
@@ -89,13 +97,13 @@ namespace ÖVinder {
 
                 int colcount = 0;
 
-                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = departTime, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = departTime, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
-                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = arrivalTime, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = arrivalTime, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
-                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = duration, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = duration, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
-                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = platform, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelVerbindungen.Controls.Add(new Label() { Text = platform, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 rowcount++;
             }
 
@@ -128,12 +136,20 @@ namespace ÖVinder {
             autoCompleteStations(textBoxNach);
         }
 
+        //
+        //
+        //
+        //Abfahrtsplan
+        //
+        //
+        //
+
+
         private void textBoxAbfahrtsplan_TextChanged(object sender, EventArgs e) {
             autoCompleteStations(textBoxAbfahrtsplan);
         }
 
         private void buttonAbfahrtsplanSuchen_Click(object sender, EventArgs e) {
-            printHeader();
 
             //get Stationboard
             Stations stations = transport.GetStations(textBoxAbfahrtsplan.Text);
@@ -142,15 +158,18 @@ namespace ÖVinder {
 
             int rowcount = 1;
 
+            //clear table and insert headers
+            printHeader();
+
             //fill Abfahrstable
             foreach (StationBoard stationboardloop in stationboard.Entries) {
                 int colcount = 0;
 
-                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Stop.Departure.ToString("HH:mm"), AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Stop.Departure.ToString("HH:mm"), AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
-                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.To, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.To, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 colcount++;
-                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Category, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
+                tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Category, AutoSize = true, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 rowcount++;
             }
         }
