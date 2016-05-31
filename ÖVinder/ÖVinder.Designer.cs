@@ -51,6 +51,7 @@
             this.textBoxStationForMap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanelVerbindungen = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonShare = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageVerbindungen.SuspendLayout();
             this.tabPageAbfahrtsplan.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // tabPageVerbindungen
             // 
+            this.tabPageVerbindungen.Controls.Add(this.buttonShare);
             this.tabPageVerbindungen.Controls.Add(this.tableLayoutPanelVerbindungen);
             this.tabPageVerbindungen.Controls.Add(this.dateTimePickerTime);
             this.tabPageVerbindungen.Controls.Add(this.labelTime);
@@ -334,6 +336,16 @@
             this.tableLayoutPanelVerbindungen.Size = new System.Drawing.Size(434, 280);
             this.tableLayoutPanelVerbindungen.TabIndex = 16;
             // 
+            // buttonShare
+            // 
+            this.buttonShare.Location = new System.Drawing.Point(9, 108);
+            this.buttonShare.Name = "buttonShare";
+            this.buttonShare.Size = new System.Drawing.Size(43, 23);
+            this.buttonShare.TabIndex = 17;
+            this.buttonShare.Text = "Share";
+            this.buttonShare.UseVisualStyleBackColor = true;
+            this.buttonShare.Click += new System.EventHandler(this.buttonShare_Click);
+            // 
             // ouvinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +392,7 @@
         private System.Windows.Forms.Label label1;
         private GMap.NET.WindowsForms.GMapControl gMapControlMap;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelVerbindungen;
+        private System.Windows.Forms.Button buttonShare;
     }
 }
 

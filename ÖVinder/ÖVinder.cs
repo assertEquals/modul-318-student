@@ -10,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -194,6 +195,25 @@ namespace ÖVinder {
             markersOverlay.Markers.Add(marker);
             gMapControlMap.Overlays.Add(markersOverlay);
             currentMarker = marker;
+        }
+
+        private void buttonShare_Click(object sender, EventArgs e) {
+            int i = 0;
+            int j = 0;
+            String body = "";
+            for (j = 0; j <= this.tableLayoutPanelVerbindungen.RowCount; j++) {
+                for (i = 0; i <= tableLayoutPanelVerbindungen.ColumnCount; i++) {
+                    Control c = this.tableLayoutPanelVerbindungen.GetControlFromPosition(i, j);
+
+                    if (c != null) {
+                        body += c.Text + "\t";
+                    }
+                }
+                body += "\r\n";
+            }
+            Popup popup = new Popup();
+            popup.setBody(body);
+            popup.Show();
         }
     }
   }
