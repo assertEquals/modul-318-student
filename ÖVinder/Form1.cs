@@ -56,28 +56,6 @@ namespace ÖVinder {
             tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = "Fahrt", AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None });
         }
 
-        private void label1_Click(object sender, EventArgs e) {
-            if (panelVerbindungen.Visible) {
-                labelVerbindungen.Text = "Verbindungen <";
-                panelVerbindungen.Visible = false;
-            }
-            else {
-                labelVerbindungen.Text = "Verbindungen v";
-                panelVerbindungen.Visible = true;
-            }
-        }
-
-        private void labelAbfahrtsplan_Click(object sender, EventArgs e) {
-            if (tableLayoutPanelAbfahrtsplan.Visible) {
-                labelAbfahrtsplan.Text = "Verbindungen <";
-                tableLayoutPanelAbfahrtsplan.Visible = false;
-            }
-            else {
-                labelAbfahrtsplan.Text = "Verbindungen v";
-                tableLayoutPanelAbfahrtsplan.Visible = true;
-            }
-        }
-
         private void buttonSuchen_Click(object sender, EventArgs e) {
             searchConnections();
         }
@@ -174,17 +152,6 @@ namespace ÖVinder {
                 colcount++;
                 tableLayoutPanelAbfahrtsplan.Controls.Add(new Label() { Text = stationboardloop.Category, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Dock = DockStyle.None }, colcount, rowcount);
                 rowcount++;
-            }
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-            if (tableLayoutPanelAbfahrtsplan.Visible) {
-                labelAbfahrtsplan.Text = "Karte <";
-                tableLayoutPanelAbfahrtsplan.Visible = false;
-            }
-            else {
-                labelAbfahrtsplan.Text = "Karte v";
-                tableLayoutPanelAbfahrtsplan.Visible = true;
             }
         }
 
