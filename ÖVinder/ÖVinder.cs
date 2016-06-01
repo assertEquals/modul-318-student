@@ -204,14 +204,11 @@ namespace ÖVinder {
         private void sendMail() {
             int currentRow = 0;
             string body = "";
-            Trace.WriteLine(this.tableLayoutPanelVerbindungen.ColumnCount);
-            Trace.WriteLine(this.tableLayoutPanelVerbindungen.RowCount);
-
+            //get data from table layout panel into html-table
             body += "<h1>Verbindungen " + textBoxVon.Text + " - " + textBoxNach.Text + "</h1>";
             foreach (Control c in tableLayoutPanelVerbindungen.Controls) {
                 if (currentRow != this.tableLayoutPanelVerbindungen.GetRow(c)) {
                     currentRow = this.tableLayoutPanelVerbindungen.GetRow(c);
-                    Console.WriteLine(c.Text);
                     body += "</tr>";
                     body += "<tr>";
                     body += "<td>" + c.Text + "</td>";
@@ -221,6 +218,7 @@ namespace ÖVinder {
             }
             body = "<table border=\"1\">" + body + "</tr></table>";
 
+            //create Popup
             Popup popup = new Popup();
             popup.setBody(body);
             popup.setFrom(textBoxVon.Text);

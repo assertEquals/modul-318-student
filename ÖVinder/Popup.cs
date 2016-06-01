@@ -44,6 +44,7 @@ namespace ÖVinder {
         }
 
         private void sendMail() {
+            //send mail via gmail with body message
             var fromAddress = new MailAddress("modul318vfi@gmail.com", "SwissTransport");
             var toAddress = new MailAddress(textBoxReciver.Text, textBoxReciver.Text);
             const string fromPassword = "vfibeschte";
@@ -68,6 +69,7 @@ namespace ÖVinder {
         }
 
         private void textBoxReciver_KeyDown(object sender, KeyEventArgs e) {
+            //check if Enter is pressed
             if(e.KeyData == Keys.Enter) {
                 sendMail();
                 this.Close();
