@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>zug %282%29.png.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GMap.NET.Core">
       <HintPath>..\..\..\Users\dok516\Downloads\GMap.NET.WindowsForms\Release-NETv4.0\GMap.NET.Core.dll</HintPath>
@@ -103,6 +106,7 @@
   <ItemGroup>
     <Content Include="boot.png" />
     <Content Include="bus.png" />
+    <Content Include="zug %282%29.png.ico" />
     <Content Include="zug.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
