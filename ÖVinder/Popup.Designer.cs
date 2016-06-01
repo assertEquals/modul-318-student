@@ -48,6 +48,7 @@
             this.textBoxReciver.Name = "textBoxReciver";
             this.textBoxReciver.Size = new System.Drawing.Size(200, 20);
             this.textBoxReciver.TabIndex = 1;
+            this.textBoxReciver.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxReciver_KeyDown);
             // 
             // labelBody
             // 

@@ -197,22 +197,34 @@ namespace ÖVinder {
             currentMarker = marker;
         }
 
-        private void buttonShare_Click(object sender, EventArgs e) {
-            int i = 0;
-            int j = 0;
-            String body = "";
-            for (j = 0; j <= this.tableLayoutPanelVerbindungen.RowCount; j++) {
-                for (i = 0; i <= tableLayoutPanelVerbindungen.ColumnCount; i++) {
-                    Control c = this.tableLayoutPanelVerbindungen.GetControlFromPosition(i, j);
+        private void labelShare_Click(object sender, EventArgs e) {
+            sendMail();
+        }
 
-                    if (c != null) {
-                        body += c.Text + "\t";
-                    }
+        private void sendMail() {
+            int currentRow = 0;
+            string body = "";
+            Trace.WriteLine(this.tableLayoutPanelVerbindungen.ColumnCount);
+            Trace.WriteLine(this.tableLayoutPanelVerbindungen.RowCount);
+
+            body += "<h1>Verbindungen " + textBoxVon.Text + " - " + textBoxNach.Text + "</h1>";
+            foreach (Control c in tableLayoutPanelVerbindungen.Controls) {
+                if (currentRow != this.tableLayoutPanelVerbindungen.GetRow(c)) {
+                    currentRow = this.tableLayoutPanelVerbindungen.GetRow(c);
+                    Console.WriteLine(c.Text);
+                    body += "</tr>";
+                    body += "<tr>";
+                    body += "<td>" + c.Text + "</td>";
+                    continue;
                 }
-                body += "\r\n";
+                body += "<td>" + c.Text + "</td>";
             }
+            body = "<table border=\"1\">" + body + "</tr></table>";
+
             Popup popup = new Popup();
             popup.setBody(body);
+            popup.setFrom(textBoxVon.Text);
+            popup.setTo(textBoxNach.Text);
             popup.Show();
         }
     }

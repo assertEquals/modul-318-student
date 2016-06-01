@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ouvinder));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageVerbindungen = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanelVerbindungen = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelDatum = new System.Windows.Forms.Label();
@@ -50,8 +52,7 @@
             this.buttonsearchStationOnMap = new System.Windows.Forms.Button();
             this.textBoxStationForMap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanelVerbindungen = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonShare = new System.Windows.Forms.Button();
+            this.labelShare = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageVerbindungen.SuspendLayout();
             this.tabPageAbfahrtsplan.SuspendLayout();
@@ -72,7 +73,8 @@
             // 
             // tabPageVerbindungen
             // 
-            this.tabPageVerbindungen.Controls.Add(this.buttonShare);
+            this.tabPageVerbindungen.Controls.Add(this.labelShare);
+            this.tabPageVerbindungen.Controls.Add(this.label2);
             this.tabPageVerbindungen.Controls.Add(this.tableLayoutPanelVerbindungen);
             this.tabPageVerbindungen.Controls.Add(this.dateTimePickerTime);
             this.tabPageVerbindungen.Controls.Add(this.labelTime);
@@ -90,6 +92,36 @@
             this.tabPageVerbindungen.TabIndex = 0;
             this.tabPageVerbindungen.Text = "Verbindungen";
             this.tabPageVerbindungen.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "       ";
+            // 
+            // tableLayoutPanelVerbindungen
+            // 
+            this.tableLayoutPanelVerbindungen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelVerbindungen.AutoScroll = true;
+            this.tableLayoutPanelVerbindungen.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanelVerbindungen.ColumnCount = 4;
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelVerbindungen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tableLayoutPanelVerbindungen.Location = new System.Drawing.Point(3, 138);
+            this.tableLayoutPanelVerbindungen.Name = "tableLayoutPanelVerbindungen";
+            this.tableLayoutPanelVerbindungen.RowCount = 2;
+            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelVerbindungen.Size = new System.Drawing.Size(434, 280);
+            this.tableLayoutPanelVerbindungen.TabIndex = 16;
             // 
             // dateTimePickerTime
             // 
@@ -315,36 +347,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Station:";
             // 
-            // tableLayoutPanelVerbindungen
+            // labelShare
             // 
-            this.tableLayoutPanelVerbindungen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelVerbindungen.AutoScroll = true;
-            this.tableLayoutPanelVerbindungen.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanelVerbindungen.ColumnCount = 4;
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelVerbindungen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelVerbindungen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tableLayoutPanelVerbindungen.Location = new System.Drawing.Point(3, 138);
-            this.tableLayoutPanelVerbindungen.Name = "tableLayoutPanelVerbindungen";
-            this.tableLayoutPanelVerbindungen.RowCount = 2;
-            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelVerbindungen.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelVerbindungen.Size = new System.Drawing.Size(434, 280);
-            this.tableLayoutPanelVerbindungen.TabIndex = 16;
-            // 
-            // buttonShare
-            // 
-            this.buttonShare.Location = new System.Drawing.Point(9, 108);
-            this.buttonShare.Name = "buttonShare";
-            this.buttonShare.Size = new System.Drawing.Size(43, 23);
-            this.buttonShare.TabIndex = 17;
-            this.buttonShare.Text = "Share";
-            this.buttonShare.UseVisualStyleBackColor = true;
-            this.buttonShare.Click += new System.EventHandler(this.buttonShare_Click);
+            this.labelShare.Image = ((System.Drawing.Image)(resources.GetObject("labelShare.Image")));
+            this.labelShare.Location = new System.Drawing.Point(3, 109);
+            this.labelShare.Name = "labelShare";
+            this.labelShare.Size = new System.Drawing.Size(35, 26);
+            this.labelShare.TabIndex = 18;
+            this.labelShare.Click += new System.EventHandler(this.labelShare_Click);
             // 
             // ouvinder
             // 
@@ -392,7 +402,8 @@
         private System.Windows.Forms.Label label1;
         private GMap.NET.WindowsForms.GMapControl gMapControlMap;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelVerbindungen;
-        private System.Windows.Forms.Button buttonShare;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelShare;
     }
 }
 
