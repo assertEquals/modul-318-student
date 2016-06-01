@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Popup));
             this.labelReciver = new System.Windows.Forms.Label();
             this.textBoxReciver = new System.Windows.Forms.TextBox();
             this.labelBody = new System.Windows.Forms.Label();
@@ -101,6 +102,7 @@
             this.Controls.Add(this.labelBody);
             this.Controls.Add(this.textBoxReciver);
             this.Controls.Add(this.labelReciver);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Popup";
             this.Text = "Popup";
             this.ResumeLayout(false);

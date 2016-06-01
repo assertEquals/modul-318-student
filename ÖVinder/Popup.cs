@@ -48,7 +48,7 @@ namespace ÖVinder {
             var toAddress = new MailAddress(textBoxReciver.Text, textBoxReciver.Text);
             const string fromPassword = "vfibeschte";
             const string subject = "SwissTransport verbindung";
-            body += textBoxBody.Text;
+            body += "<br>" + textBoxBody.Text;
 
             var smtp = new SmtpClient {
                 Host = "smtp.gmail.com",
